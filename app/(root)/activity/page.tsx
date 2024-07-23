@@ -16,9 +16,11 @@ async function Page() {
 
   return (
     <>
-      <h1 className='head-text'>Activity</h1>
+      <section className='gap-5 flex flex-col items-center justify-center w-full'>
+      <div className="w-full max-w-screen-sm">
+      <h1 className='head-text w-full text-left mb-6'>Recent activity</h1>
+      {/* <div className="w-full h-0.5 bg-dark-4 my-6"/> */}
 
-      <section className='mt-10 flex flex-col gap-5'>
         {activity.length > 0 ? (
           <>
             {activity.map((activity) => (
@@ -42,8 +44,9 @@ async function Page() {
             ))}
           </>
         ) : (
-          <p className='!text-base-regular text-light-3'>No activity yet</p>
+          <p className='!text-base-regular text-light-3 '>No activity yet</p>
         )}
+        </div>
       </section>
     </>
   );

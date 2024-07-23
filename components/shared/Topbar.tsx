@@ -35,7 +35,7 @@ const Topbar = () => {
             <Link
               href={link.route}
               key={link.label}
-              className={`btn-anim menu_link ${isActive && "text-light-2"}`}
+              className={`scale-anim-90 menu_link ${isActive && "text-light-2"}`}
             >
               {/* <Image
                 src={link.imgURL}

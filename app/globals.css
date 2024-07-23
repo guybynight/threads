@@ -47,7 +47,7 @@
   }
 
   .user-card_btn {
-    @apply h-auto min-w-[74px] rounded-2xl bg-primary-500 text-[12px] text-light-1 btn-anim !important;
+    @apply h-auto min-w-[74px] rounded-2xl bg-primary-500 text-[12px] text-light-1 scale-anim-90 !important;
   }
 
   .searchbar {
@@ -160,8 +160,12 @@
   @apply rounded-3xl bg-primary-500 px-8 py-2 !text-small-regular text-light-1 max-xs:w-full !important;
 }
 
-.btn-anim{
+.scale-anim-90{
   @apply active:scale-90 transition-all;
+}
+
+.scale-anim-95{
+  @apply active:scale-95 transition-all;
 }
 
 .material-icons {
