@@ -14,21 +14,29 @@ export function isBase64Image(imageData: string) {
 
 // created by chatgpt
 export function formatDateString(dateString: string) {
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  };
-
+  const now = new Date();
   const date = new Date(dateString);
-  const formattedDate = date.toLocaleDateString(undefined, options);
+  const diffInMs = now.getTime() - date.getTime();
+  const diffInMinutes = diffInMs / (1000 * 60);
+  const diffInHours = diffInMinutes / 60;
 
-  const time = date.toLocaleTimeString([], {
-    hour: "numeric",
-    minute: "2-digit",
-  });
+  if (diffInHours <= 1) {
+    return `${Math.floor(diffInMinutes)}m`;
+  } else if (diffInHours <= 24) {
+    return `${Math.floor(diffInHours)}h`;
+  } else if (diffInHours <= 72) {
+    return `${Math.floor(diffInHours / 24)}d`;
+  } else {
+    const formattedDate = date.toLocaleDateString("en-US", {
+      year: now.getFullYear() !== date.getFullYear() ? 'numeric' : undefined, // Only show year if it's not the current year
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    });
 
-  return `${time} - ${formattedDate}`;
+    return `${formattedDate}`;
+  }
 }
 
 // created by chatgpt

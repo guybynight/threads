@@ -65,9 +65,10 @@ function ThreadCard({
               <h4 className='cursor-pointer text-base-semibold text-light-1'>
                 {author.name}
               </h4>
+              <p title={createdAt} className="text-small-semibold text-light-3">{formatDateString(createdAt)}</p>
             </Link>
 
-            <p className='mt-2 text-small-regular text-light-2'>{content}</p>
+            <p className='mt-4 whitespace-pre-wrap break-words line-clamp-5 text-light-2'>{content}</p>
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5'>
