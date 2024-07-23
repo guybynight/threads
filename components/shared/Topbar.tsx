@@ -19,8 +19,8 @@ const Topbar = () => {
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       <div className="w-1/6 flex flow-row justify-start">
         <Link href='/' className='flex items-center gap-4'>
-          <Image src='/logo.svg' alt='logo' width={28} height={28} />
-          <p className='text-heading3-bold text-light-1 max-xs:hidden'>Threads</p>
+          {/* <Image src='/logo.svg' alt='logo' width={28} height={28} /> */}
+          <p className='text-heading3-bold text-light-1 max-xs:hidden'>Poster</p>
         </Link>
       </div>
       <div className='flex w-full flex-1 justify-center flex-row gap-1 px-6'>
