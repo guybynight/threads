@@ -22,6 +22,19 @@ export async function fetchUser(userId: string) {
   }
 }
 
+export async function fetchUserByUsername(username: string) {
+  try {
+    connectToDB();
+
+    return await User.findOne({ username }).populate({
+      path: "user",
+      model: User,
+    });
+  } catch (error: any) {
+    throw new Error(`Failed to fetch user user by username: ${error.message}`);
+  }
+}
+
 interface Params {
   userId: string;
   username: string;

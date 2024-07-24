@@ -63,7 +63,7 @@ function PostThread({ userId }: Props) {
               <FormLabel className='text-base-semibold text-light-2'>
                 Content
               </FormLabel>
-              <FormControl className='no-focus border border-dark-4 bg-dark-3 text-light-1'>
+              <FormControl placeholder="What's on your mind?" className='rounded-xl no-focus border border-dark-4 bg-dark-3/20 text-light-1'>
                 <Textarea rows={15} {...field} />
               </FormControl>
               <FormMessage />
@@ -71,7 +71,7 @@ function PostThread({ userId }: Props) {
           )}
         />
 
-        <Button type='submit' className='bg-primary-500'>
+        <Button type='submit' className='bg-primary-500 rounded-xl'>
           Post Thread
         </Button>
       </form>

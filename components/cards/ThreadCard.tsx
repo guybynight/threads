@@ -45,20 +45,20 @@ function ThreadCard({
 }: Props) {
 
   return (
-    <article className={`${!isExpanded && "scale-anim-95"}`}
+    <article className={`${!isExpanded && !isComment && "scale-anim-95"}`}
     >
       <Link
         href={!isExpanded?`/thread/${id}`:''}
         className={
           `flex w-full flex-col rounded-xl
-          ${!isExpanded ? "hover:bg-opacity-70  transition-all" : "bg-opacity-50"}
-          ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7 border"}
+          ${!isExpanded ? "hover:bg-opacity-70  transition-all" : ""}
+          ${isComment ? "px-0 xs:px-7 hover:bg-dark-2 hover:py-7 hover:border hover:mb-7" : "bg-dark-2 p-7 border"}
         `}
       >
       <div className='flex items-start justify-between'>
         <div className='flex w-full flex-1 flex-row gap-4'>
           <div className='flex flex-col items-center'>
-            <Link href={`/profile/${author.id}`} className='relative h-11 w-11'>
+            <Link href={`/profile/${author.id}`} className='relative h-11 w-11 hover:opacity-50 transition-all'>
               <Image
                 src={author.image}
                 alt='user_community_image'
@@ -71,8 +71,8 @@ function ThreadCard({
 
           <div className='flex w-full flex-col'>
             <Link href={`/profile/${author.id}`} className='w-fit'>
-              <h4 className='cursor-pointer text-base-semibold text-light-1'>
-                {author.name}
+              <h4 className='cursor-pointer text-base-semibold text-light-1 flex items-center gap-2 hover:opacity-50 transition-all'>
+                {author.name} <span className="opacity-40 text-small-regular">@{author.username}</span>
               </h4>
               <p title={createdAt} className="text-small-semibold text-light-3">{formatDateString(createdAt)}</p>
             </Link>

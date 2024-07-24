@@ -30,21 +30,22 @@ async function Page({ params }: { params: { id: string } }) {
       />
 
       <div className='mt-9'>
-        <Tabs defaultValue='threads' className='w-full'>
-          <TabsList className='tab'>
+        <Tabs defaultValue='posts' className='w-full'>
+          <TabsList className='tab md:w-1/2'>
             {profileTabs.map((tab) => (
               <TabsTrigger key={tab.label} value={tab.value} className='tab'>
-                <Image
+                {/* <Image
                   src={tab.icon}
                   alt={tab.label}
                   width={24}
                   height={24}
                   className='object-contain'
-                />
+                /> */}
+                <span className="material-icons">{tab.materialIcon}</span>
                 <p className='max-sm:hidden'>{tab.label}</p>
 
-                {tab.label === "Threads" && (
-                  <p className='ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2'>
+                {tab.label === "Replies" && (
+                  <p className='ml-1 rounded-full bg-dark-4 px-3 py-1 !text-small-medium text-light-1'>
                     {userInfo.threads.length}
                   </p>
                 )}

@@ -131,7 +131,7 @@
 
 /* Tab */
 .tab {
-  @apply flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-dark-3 data-[state=active]:text-dark-2 !important;
+  @apply rounded-2xl flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-dark-3 data-[state=active]:text-dark-2 !important;
 }
 
 .no-focus {
@@ -144,11 +144,11 @@
 }
 
 .account-form_image-input {
-  @apply cursor-pointer border-none bg-transparent outline-none file:text-blue !important;
+  @apply cursor-pointer border-none bg-transparent outline-none file:text-light-4 !important;
 }
 
 .account-form_input {
-  @apply border border-dark-4 bg-dark-3 text-light-1 !important;
+  @apply border border-dark-4 bg-dark-3/20 rounded-xl text-light-1 !important;
 }
 
 /* Comment Form */
@@ -157,9 +157,10 @@
 }
 
 .comment-form_btn {
-  @apply rounded-2xl bg-primary-500 px-8 py-2 !text-small-regular text-dark-1 max-xs:w-full !important;
+  @apply rounded-2xl bg-primary-500 px-8 py-2 !text-small-semibold text-dark-1 max-xs:w-full !important;
 }
 
+/* Scale on press animations */
 .scale-anim-90{
   @apply active:scale-90 transition-all;
 }
@@ -193,4 +194,8 @@
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.icon-small {
+  font-size: 18px !important;
 }
