@@ -32,6 +32,8 @@ async function page({ params }: { params: { id: string } }) {
           community={thread.community}
           createdAt={thread.createdAt}
           comments={thread.children}
+          isComment={false}
+          isExpanded={true}
         />
       </div>
 

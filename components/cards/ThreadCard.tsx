@@ -8,6 +8,7 @@ interface Props {
   id: string;
   currentUserId: string;
   parentId: string | null;
+  // title: string;
   content: string;
   author: {
     name: string;
@@ -26,30 +27,33 @@ interface Props {
     };
   }[];
   isComment?: boolean;
+  isExpanded?: boolean;
 }
 
 function ThreadCard({
   id,
   currentUserId,
   parentId,
+  // title,
   content,
   author,
   community,
   createdAt,
   comments,
   isComment,
+  isExpanded,
 }: Props) {
 
   return (
-    <article className="scale-anim-95"
+    <article className={`${!isExpanded && "scale-anim-95"}`}
     >
       <Link
-        href={`/thread/${id}`}
-        className={`flex w-full flex-col rounded-xl ${
-          true && "hover:bg-opacity-70 transition-all"  // Conditionally add the classes
-        } ${
-          isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
-        }`}
+        href={!isExpanded?`/thread/${id}`:''}
+        className={
+          `flex w-full flex-col rounded-xl 
+          ${!isExpanded ? "hover:bg-opacity-70  transition-all" : "bg-opacity-50"}
+          ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"}
+        `}
       >
       <div className='flex items-start justify-between'>
         <div className='flex w-full flex-1 flex-row gap-4'>
@@ -62,7 +66,6 @@ function ThreadCard({
                 className='cursor-pointer rounded-full'
               />
             </Link>
-
             <div className='thread-card_bar' />
           </div>
 
@@ -74,7 +77,10 @@ function ThreadCard({
               <p title={createdAt} className="text-small-semibold text-light-3">{formatDateString(createdAt)}</p>
             </Link>
 
-            <p className='mt-4 whitespace-pre-wrap break-words line-clamp-5 text-light-2'>{content}</p>
+            {
+              true && (<h2 className="mt-4 text-heading4-medium text-light-2">{}Post title</h2>)
+            }
+            <p className={`mt-4 whitespace-pre-wrap break-words text-light-2 ${!isExpanded && "line-clamp-5"}`}>{content}</p>
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5'>
