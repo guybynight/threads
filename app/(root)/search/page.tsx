@@ -4,7 +4,6 @@ import { currentUser } from "@clerk/nextjs";
 import UserCard from "@/components/cards/UserCard";
 import Searchbar from "@/components/shared/Searchbar";
 import Pagination from "@/components/shared/Pagination";
-import ThreadCard from "@/components/cards/ThreadCard";
 
 import { fetchUser, fetchUsers } from "@/lib/actions/user.actions";
 
@@ -22,7 +21,7 @@ async function Page({
   const result = await fetchUsers({
     userId: user.id,
     searchString: searchParams.q,
-    pageNumber: searchParams?.page ? + searchParams.page : 1,
+    pageNumber: searchParams?.page ? +searchParams.page : 1,
     pageSize: 25,
   });
 

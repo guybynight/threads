@@ -34,7 +34,7 @@
 
   /* thread card  */
   .thread-card_bar {
-    @apply relative mt-2 w-0.5 grow rounded-full bg-neutral-800;
+    @apply relative mt-2 w-0.5 grow rounded-full bg-dark-3;
   }
 
   /* User card */
@@ -47,15 +47,15 @@
   }
 
   .user-card_btn {
-    @apply h-auto min-w-[74px] rounded-2xl bg-primary-500 text-[12px] text-light-1 scale-anim-90 !important;
+    @apply h-auto min-w-[74px] rounded-2xl bg-primary-500 text-[12px] text-dark-1 scale-anim-90 !important;
   }
 
   .searchbar {
-    @apply flex gap-1 rounded-2xl bg-dark-3 px-4 py-2;
+    @apply flex gap-1 rounded-2xl bg-dark-2 px-4 py-2;
   }
 
   .searchbar_input {
-    @apply border-none bg-dark-3 text-base-regular text-light-4 outline-none !important;
+    @apply border-none bg-dark-2 text-base-regular text-light-4 outline-none !important;
   }
 
   .topbar {
@@ -79,7 +79,7 @@
   }
 
   .menu_link {
-    @apply hover:bg-dark-4 relative flex justify-start gap-2 rounded-2xl p-4 text-light-4;
+    @apply hover:bg-dark-4 relative flex justify-start gap-2 rounded-2xl p-4 text-dark-3;
   }
 
   .pagination {
@@ -131,7 +131,7 @@
 
 /* Tab */
 .tab {
-  @apply flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2 !important;
+  @apply flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-dark-3 data-[state=active]:text-dark-2 !important;
 }
 
 .no-focus {
@@ -157,7 +157,7 @@
 }
 
 .comment-form_btn {
-  @apply rounded-3xl bg-primary-500 px-8 py-2 !text-small-regular text-light-1 max-xs:w-full !important;
+  @apply rounded-2xl bg-primary-500 px-8 py-2 !text-small-regular text-dark-1 max-xs:w-full !important;
 }
 
 .scale-anim-90{
