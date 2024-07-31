@@ -163,7 +163,7 @@ module.exports = {
           fontWeight: "500",
         },
       ],
-      "x-small-semibold": [
+      "": [
         "7px",
         {
           lineHeight: "9.318px",

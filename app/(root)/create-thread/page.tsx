@@ -16,7 +16,7 @@ async function Page() {
     <>
       <h1 className='head-text'>New Post</h1>
 
-      <PostThread userId={userInfo._id} />
+      <PostThread userId={userInfo._id} username={userInfo.username} name={userInfo.name} imgUrl={userInfo.image} />
     </>
   );
 }

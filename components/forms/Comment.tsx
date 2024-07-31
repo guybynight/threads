@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { usePathname } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import TextareaAutosize from 'react-textarea-autosize';
+
 import {
   Form,
   FormControl,
@@ -54,7 +56,7 @@ function Comment({ threadId, currentUserImg, currentUserId }: Props) {
           control={form.control}
           name='thread'
           render={({ field }) => (
-            <FormItem className='flex w-full items-center gap-3'>
+            <FormItem className='flex flex-row items-start w-full gap-3'>
               <FormLabel>
                 <Image
                   src={currentUserImg}
@@ -65,18 +67,18 @@ function Comment({ threadId, currentUserImg, currentUserId }: Props) {
                 />
               </FormLabel>
               <FormControl className='border-none bg-transparent'>
-                <Input
+                <TextareaAutosize
                   type='text'
                   {...field}
                   placeholder='Comment...'
-                  className='no-focus text-light-1 outline-none'
+                  className='no-focus text-light-1 outline-none resize-none w-full'
                 />
               </FormControl>
             </FormItem>
           )}
         />
 
-        <Button type='submit' className='comment-form_btn'>
+        <Button type='submit' className='comment-form_btn mb-auto'>
           Reply
         </Button>
       </form>

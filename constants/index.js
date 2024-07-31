@@ -6,6 +6,12 @@ export const sidebarLinks = [
     label: "Home",
   },
   {
+    materialIcon: "edit_square",
+    imgURL: "/assets/create.svg",
+    route: "/create-thread",
+    label: "Post",
+  },
+  {
     materialIcon: "search",
     imgURL: "/assets/search.svg",
     route: "/search",
@@ -16,12 +22,6 @@ export const sidebarLinks = [
     imgURL: "/assets/heart.svg",
     route: "/activity",
     label: "Activity",
-  },
-  {
-    materialIcon: "edit_square",
-    imgURL: "/assets/create.svg",
-    route: "/create-thread",
-    label: "Post",
   },
   // {
   //   materialIcon: "group",

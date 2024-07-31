@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,6 +13,7 @@ interface Props {
   content: string;
   author: {
     name: string;
+    username: string;
     image: string;
     id: string;
   };
@@ -45,16 +47,15 @@ function ThreadCard({
 }: Props) {
 
   return (
-    <article className={`${!isExpanded && !isComment && "scale-anim-95"}`}
+    <Link
+      href={!isExpanded?`/post/${id}`:``}
+      className={
+        `flex w-full flex-col rounded-xl
+        ${!isExpanded && !isComment && "scale-anim-95"}
+        ${!isExpanded ? "hover:bg-opacity-70  transition-all" : "cursor-auto"}
+        ${isComment ? "px-0 xs:px-7 py-7 hover:bg-dark-2 hover:border" : "bg-dark-2 p-7 border"}
+      `}
     >
-      <Link
-        href={!isExpanded?`/thread/${id}`:''}
-        className={
-          `flex w-full flex-col rounded-xl
-          ${!isExpanded ? "hover:bg-opacity-70  transition-all" : ""}
-          ${isComment ? "px-0 xs:px-7 hover:bg-dark-2 hover:py-7 hover:border hover:mb-7" : "bg-dark-2 p-7 border"}
-        `}
-      >
       <div className='flex items-start justify-between'>
         <div className='flex w-full flex-1 flex-row gap-4'>
           <div className='flex flex-col items-center'>
@@ -72,26 +73,31 @@ function ThreadCard({
           <div className='flex w-full flex-col'>
             <Link href={`/profile/${author.id}`} className='w-fit'>
               <h4 className='cursor-pointer text-base-semibold text-light-1 flex items-center gap-2 hover:opacity-50 transition-all'>
-                {author.name} <span className="opacity-40 text-small-regular">@{author.username}</span>
+                {author.name} 
+                {/* <span className="opacity-40 text-small-regular">@{author.username}</span> */}
               </h4>
               <p title={createdAt} className="text-small-semibold text-light-3">{formatDateString(createdAt)}</p>
             </Link>
 
             {
-              true && (<h2 className="mt-4 text-heading4-medium text-light-2">{}Post title</h2>)
+              //post title
+              // true && (<h2 className="mt-4 text-heading4-medium text-light-2">{}Post title</h2>)
             }
             <p className={`mt-4 whitespace-pre-wrap break-words text-light-2 ${!isExpanded && "line-clamp-5"}`}>{content}</p>
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5'>
-                <Image
+                <span className="material-icons icon-small">favorite</span>
+                <span className="material-icons icon-small">mark_chat_unread</span>
+                <span className="material-icons icon-small">share</span>
+                {/* <Image
                   src='/assets/heart-gray.svg'
                   alt='heart'
                   width={24}
                   height={24}
                   className='cursor-pointer object-contain'
                 />
-                <Link href={`/thread/${id}`}>
+                <Link href={`/post/${id}`}>
                   <Image
                     src='/assets/reply.svg'
                     alt='heart'
@@ -113,11 +119,11 @@ function ThreadCard({
                   width={24}
                   height={24}
                   className='cursor-pointer object-contain'
-                />
+                /> */}
               </div>
 
               {isComment && comments.length > 0 && (
-                <Link href={`/thread/${id}`}>
+                <Link href={`/post/${id}`}>
                   <p className='mt-1 text-subtle-medium text-gray-1'>
                     {comments.length} repl{comments.length > 1 ? "ies" : "y"}
                   </p>
@@ -149,7 +155,7 @@ function ThreadCard({
             />
           ))}
 
-          <Link href={`/thread/${id}`}>
+          <Link href={`/post/${id}`}>
             <p className='mt-1 text-subtle-medium text-gray-1'>
               {comments.length} repl{comments.length > 1 ? "ies" : "y"}
             </p>
@@ -157,7 +163,7 @@ function ThreadCard({
         </div>
       )}
 
-      {!isComment && community && (
+      {/* {!isComment && community && (
         <Link
           href={`/communities/${community.id}`}
           className='mt-5 flex items-center'
@@ -175,10 +181,8 @@ function ThreadCard({
             className='ml-1 rounded-full object-cover'
           />
         </Link>
-      )}
-      </Link>
-    </article>
-
+      )} */}
+    </Link>
   );
 }
 

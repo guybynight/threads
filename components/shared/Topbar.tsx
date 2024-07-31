@@ -1,4 +1,5 @@
 "use client";
+
 import { SignedIn, SignOutButton, useAuth } from "@clerk/nextjs";
 // import { OrganizationSwitcher } from "@clerk/nextjs";
 // import { dark } from "@clerk/themes";
@@ -6,15 +7,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { sidebarLinks } from "@/constants";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 
 
 const Topbar = () => {
   const pathname = usePathname();
   const router = useRouter();
-
+  
   const { userId } = useAuth();
 
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
+
+  const toggleOverlay = () => {
+    setOverlayVisible(!isOverlayVisible);
+  };
+
   return (
+    <div>
     <nav className='topbar'>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       <div className="w-1/6 flex flow-row justify-start">
@@ -33,9 +42,12 @@ const Topbar = () => {
 
           return (
             <Link
+              // href={link.label !== 'Post' ? link.route : ''}
               href={link.route}
               key={link.label}
               className={`scale-anim-90 menu_link ${isActive && "text-light-1"}`}
+              // onClick={link.label === 'Post' ? toggleOverlay : undefined}
+
             >
               {/* <Image
                 src={link.imgURL}
@@ -50,6 +62,7 @@ const Topbar = () => {
           );
         })}
       </div>
+
       <div className="w-1/6 flex flow-row justify-end">
         <div className='px-6'>
           <SignedIn>
@@ -95,6 +108,24 @@ const Topbar = () => {
       </div>
 
     </nav>
+    {/* {isOverlayVisible && (
+        <div className="popup-overlay z-50">
+          <div className="overlay-content">
+            <button onClick={toggleOverlay}>Close</button>
+            <p>Overlay Content Here</p>
+          </div>
+        </div>
+      )} */}
+      {isOverlayVisible && (
+        <div className="popup-overlay z-50">
+          <div className="overlay-content flex flex-col">
+            <span className="material-icons icon-large text-dark-2 spin-anim">
+              sync
+            </span>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 
