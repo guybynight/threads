@@ -88,9 +88,9 @@ function ThreadCard({
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5 text-light-1/30 transition-all cursor-pointer'>
-                <span className="material-icons icon-small hover:opacity-50 ">favorite</span>
-                <span className="material-icons icon-small hover:opacity-50">mark_chat_unread</span>
-                <span className="material-icons icon-small hover:opacity-50">share</span>
+                <span className="material-icons hover:opacity-50 ">favorite</span>
+                <span className="material-icons hover:opacity-50">mark_chat_unread</span>
+                <span className="material-icons hover:opacity-50">share</span>
               </div>
 
               {isComment && comments.length > 0 && (

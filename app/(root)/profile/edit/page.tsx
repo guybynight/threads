@@ -1,3 +1,5 @@
+import { SignedIn, SignOutButton, useAuth } from "@clerk/nextjs";
+
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
@@ -29,6 +31,16 @@ async function Page() {
 
       <section className='mt-12'>
         <AccountProfile user={userData} btnTitle='Save' />
+        <SignedIn>
+              <SignOutButton>
+                  <div className='mt-8 btn-secondary w-fit text-light-1'>
+                    <span className="material-icons">
+                      logout
+                    </span>
+                    <p className='max-lg:hidden'>Sing out</p>
+                  </div>
+              </SignOutButton>
+        </SignedIn>
       </section>
     </>
   );

@@ -93,8 +93,8 @@ function PostThread({ userId, username, imgUrl, name}: Props) {
             </FormItem>
           )}
         />
-        <Button type='submit' className='bg-primary-500 rounded-2xl'>
-          Post Thread
+        <Button type='submit' className='bg-primary-500 rounded-2xl p-btn'>
+          Post
         </Button>
       </form>
     </Form>

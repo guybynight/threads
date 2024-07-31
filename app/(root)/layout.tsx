@@ -41,7 +41,7 @@ export default function RootLayout({
             {/* <RightSidebar /> */}
           </main>
 
-          <Bottombar />
+          {/* <Bottombar /> */}
         </body>
       </html>
     </ClerkProvider>

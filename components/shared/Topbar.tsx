@@ -70,28 +70,25 @@ const Topbar = () => {
       </div>
 
       <div className="w-1/6 flex flow-row justify-end">
-        <div className='px-6'>
-          <SignedIn>
-            {/* <SignOutButton signOutCallback={() => router.push("/sign-in")}>
-              <div className='scale-anim-90 menu_link hover:text-light-1 flex items-center cursor-pointer'>
-                <span className="material-icons icon-small">
-                  logout
-                </span>
+        <SignedIn>
+          {/* <SignOutButton signOutCallback={() => router.push("/sign-in")}>
+            <div className='scale-anim-90 menu_link hover:text-light-1 flex items-center cursor-pointer'>
+              <span className="material-icons icon-small">
+                logout
+              </span>
 
-                <p className='max-lg:hidden'>Logout</p>
-              </div>
-            </SignOutButton> */}
+              <p className='max-lg:hidden'>Logout</p>
+            </div>
+          </SignOutButton> */}
           <button onClick={() => {window.location.href = `/profile/${userId}`;}}>
-              <div className='scale-anim-90 menu_link hover:text-light-1 flex items-center cursor-pointer'>
-                <span className="material-icons">
-                  person
-                </span>
-                <p className='max-lg:hidden'>Profile</p>
-              </div>
-            </button>
-          </SignedIn>
-        </div>
-        <div className='flex items-center gap-1'>
+            <div className='scale-anim-90 bg-light-1/10 hover:bg-light-1/20 rounded-full text-dark-2 p-3 flex items-center cursor-pointer'>
+              <span className="material-icons">
+                person
+              </span>
+            </div>
+          </button>
+        </SignedIn>
+        {/* <div className='flex items-center gap-1'>
           <div className='block md:hidden'>
             <SignedIn>
               <SignOutButton>
@@ -107,15 +104,15 @@ const Topbar = () => {
             </SignedIn>
           </div>
 
-          {/* <OrganizationSwitcher
+          <OrganizationSwitcher
             appearance={{
               baseTheme: dark,
               elements: {
                 organizationSwitcherTrigger: "py-2 px-4",
               },
             }}
-          /> */}
-        </div>
+          />
+        </div> */}
       </div>
 
     </nav>

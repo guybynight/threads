@@ -29,12 +29,12 @@ export const sidebarLinks = [
   //   route: "/communities",
   //   label: "Communities",
   // },
-  {
-    materialIcon: "person",
-    imgURL: "/assets/user.svg",
-    route: "/profile",
-    label: "Profile",
-  },
+  // {
+  //   materialIcon: "person",
+  //   imgURL: "/assets/user.svg",
+  //   route: "/profile",
+  //   label: "Profile",
+  // },
 ];
 
 export const profileTabs = [

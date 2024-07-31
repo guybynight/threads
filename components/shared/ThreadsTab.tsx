@@ -6,6 +6,7 @@ import { fetchUserPosts } from "@/lib/actions/user.actions";
 import ThreadCard from "../cards/ThreadCard";
 
 interface Result {
+  username: string;
   name: string;
   image: string;
   id: string;
@@ -15,6 +16,7 @@ interface Result {
     parentId: string | null;
     author: {
       name: string;
+      username: string;
       image: string;
       id: string;
     };
@@ -62,9 +64,10 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
           content={thread.text}
           author={
             accountType === "User"
-              ? { name: result.name, image: result.image, id: result.id }
+              ? { name: result.name, image: result.image, id: result.id, username: result.username }
               : {
                   name: thread.author.name,
+                  username: thread.author.username,
                   image: thread.author.image,
                   id: thread.author.id,
                 }

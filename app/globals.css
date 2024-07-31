@@ -156,8 +156,16 @@
   @apply mt-10 flex items-center gap-4 border-y border-y-dark-4 py-5 max-xs:flex-col !important;
 }
 
-.comment-form_btn {
-  @apply rounded-2xl bg-primary-500 px-6 py-3 !text-small-semibold text-dark-1 max-xs:w-full !important;
+.btn-main {
+  @apply h-11 cursor-pointer flex flex-row items-center rounded-2xl bg-primary-500 p-btn gap-1 !text-small-semibold text-dark-1 max-xs:w-full !important;
+}
+
+.btn-secondary {
+  @apply h-11 cursor-pointer flex flex-row items-center rounded-2xl bg-light-2/20 p-btn gap-1 !text-small-semibold text-dark-1 max-xs:w-full !important;
+}
+
+.btn-transparent {
+  @apply h-11 cursor-pointer flex flex-row items-center rounded-2xl hover:bg-light-2/10 p-3 gap-1 !text-small-semibold max-xs:w-full !important;
 }
 
 /* Scale on press animations */
