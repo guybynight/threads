@@ -66,18 +66,23 @@ const Topbar = () => {
       <div className="w-1/6 flex flow-row justify-end">
         <div className='px-6'>
           <SignedIn>
-            <SignOutButton signOutCallback={() => router.push("/sign-in")}>
-              <div className='flex cursor-pointer gap-4 p-4'>
-                <Image
-                  src='/assets/logout.svg'
-                  alt='logout'
-                  width={24}
-                  height={24}
-                />
+            {/* <SignOutButton signOutCallback={() => router.push("/sign-in")}>
+              <div className='scale-anim-90 menu_link hover:text-light-1 flex items-center cursor-pointer'>
+                <span className="material-icons icon-small">
+                  logout
+                </span>
 
-                <p className='text-light-2 max-lg:hidden'>Logout</p>
+                <p className='max-lg:hidden'>Logout</p>
               </div>
-            </SignOutButton>
+            </SignOutButton> */}
+          <button onClick={() => {window.location.href = `/profile/${userId}`;}}>
+              <div className='scale-anim-90 menu_link hover:text-light-1 flex items-center cursor-pointer'>
+                <span className="material-icons">
+                  person
+                </span>
+                <p className='max-lg:hidden'>Profile</p>
+              </div>
+            </button>
           </SignedIn>
         </div>
         <div className='flex items-center gap-1'>

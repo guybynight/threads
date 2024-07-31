@@ -68,7 +68,7 @@ function Comment({ threadId, currentUserImg, currentUserId }: Props) {
               </FormLabel>
               <FormControl className='border-none bg-transparent'>
                 <TextareaAutosize
-                  type='text'
+                  
                   {...field}
                   placeholder='Comment...'
                   className='no-focus text-light-1 outline-none resize-none w-full'
