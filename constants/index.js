@@ -8,7 +8,7 @@ export const sidebarLinks = [
   {
     materialIcon: "edit_square",
     imgURL: "/assets/create.svg",
-    route: "/create-thread",
+    route: "/new-post",
     label: "Post",
   },
   {

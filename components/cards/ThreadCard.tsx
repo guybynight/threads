@@ -58,26 +58,27 @@ function ThreadCard({
     >
       <div className='flex items-start justify-between'>
         <div className='flex w-full flex-1 flex-row gap-4'>
-          <div className='flex flex-col items-center'>
-            <Link href={`/profile/${author.id}`} className='relative h-11 w-11 hover:opacity-50 transition-all'>
-              <Image
-                src={author.image}
-                alt='user_community_image'
-                fill
-                className='cursor-pointer rounded-full'
-              />
-            </Link>
-            <div className='thread-card_bar' />
-          </div>
+
 
           <div className='flex w-full flex-col'>
-            <Link href={`/profile/${author.id}`} className='w-fit'>
-              <h4 className='cursor-pointer text-base-semibold text-light-1 flex items-center gap-2 hover:opacity-50 transition-all'>
-                {author.name} 
-                {/* <span className="opacity-40 text-small-regular">@{author.username}</span> */}
-              </h4>
-              <p title={createdAt} className="text-small-semibold text-light-3">{formatDateString(createdAt)}</p>
-            </Link>
+              <Link href={`/profile/${author.id}`} className='hover:opacity-80 transition-all flex flex-row gap-2'>
+                <div className='relative h-11 w-11'>
+                  <Image
+                    src={author.image}
+                    alt='user_community_image'
+                    fill
+                    className='rounded-full '
+                  />
+                </div>
+                <div className='w-fit'>
+                  <h4 className='text-base-semibold text-light-1 flex items-center gap-2'>
+                    {author.name} 
+                    {/* <span className="opacity-40 text-small-regular">@{author.username}</span> */}
+                  </h4>
+                  <p title={createdAt} className="text-small-semibold text-light-3">{formatDateString(createdAt)}</p>
+                </div>
+              </Link>
+
 
             {
               //post title
@@ -86,40 +87,10 @@ function ThreadCard({
             <p className={`mt-4 whitespace-pre-wrap break-words text-light-2 ${!isExpanded && "line-clamp-5"}`}>{content}</p>
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
-              <div className='flex gap-3.5'>
-                <span className="material-icons icon-small">favorite</span>
-                <span className="material-icons icon-small">mark_chat_unread</span>
-                <span className="material-icons icon-small">share</span>
-                {/* <Image
-                  src='/assets/heart-gray.svg'
-                  alt='heart'
-                  width={24}
-                  height={24}
-                  className='cursor-pointer object-contain'
-                />
-                <Link href={`/post/${id}`}>
-                  <Image
-                    src='/assets/reply.svg'
-                    alt='heart'
-                    width={24}
-                    height={24}
-                    className='cursor-pointer object-contain'
-                  />
-                </Link>
-                <Image
-                  src='/assets/repost.svg'
-                  alt='heart'
-                  width={24}
-                  height={24}
-                  className='cursor-pointer object-contain'
-                />
-                <Image
-                  src='/assets/share.svg'
-                  alt='heart'
-                  width={24}
-                  height={24}
-                  className='cursor-pointer object-contain'
-                /> */}
+              <div className='flex gap-3.5 text-light-1/30 transition-all cursor-pointer'>
+                <span className="material-icons icon-small hover:opacity-50 ">favorite</span>
+                <span className="material-icons icon-small hover:opacity-50">mark_chat_unread</span>
+                <span className="material-icons icon-small hover:opacity-50">share</span>
               </div>
 
               {isComment && comments.length > 0 && (

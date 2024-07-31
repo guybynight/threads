@@ -7,20 +7,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { sidebarLinks } from "@/constants";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { set } from "mongoose";
 
 
 const Topbar = () => {
   const pathname = usePathname();
   const router = useRouter();
-  
+
   const { userId } = useAuth();
 
   const [isOverlayVisible, setOverlayVisible] = useState(false);
 
   const toggleOverlay = () => {
-    setOverlayVisible(!isOverlayVisible);
+    setOverlayVisible(true);
   };
+
+  useEffect(() => {
+    setOverlayVisible(false);
+  }, [pathname]);
 
   return (
     <div>
@@ -46,6 +51,7 @@ const Topbar = () => {
               href={link.route}
               key={link.label}
               className={`scale-anim-90 menu_link ${isActive && "text-light-1"}`}
+              onClick={toggleOverlay}
               // onClick={link.label === 'Post' ? toggleOverlay : undefined}
 
             >
@@ -121,7 +127,7 @@ const Topbar = () => {
           </div>
         </div>
       )} */}
-      {isOverlayVisible && (
+      {false && (
         <div className="popup-overlay z-50">
           <div className="overlay-content flex flex-col">
             <span className="material-icons icon-large text-dark-2 spin-anim">
